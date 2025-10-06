@@ -2,6 +2,9 @@ const Job = require('../models/Job');
 
 exports.addJob = async (req,res) =>{
     try{
+        console.log("Body:", req.body);
+    console.log("File:", req.file);
+    
         const {company, position, status, notes} = req.body;
         if(!company || !position){
             return res.status(401).json({ message: 'Company and Position are required' })
@@ -12,9 +15,12 @@ exports.addJob = async (req,res) =>{
             position,    
             status,
             notes,
+            resume: req.file ? req.file.filename : null
         })
+    
         res.status(201).json(job);
     }catch (err) {
+      console.log(job)
         res.status(500).json({ message: 'Error creating job', error: err.message });
     }
 }
@@ -83,7 +89,7 @@ exports.getJobs = async (req, res) => {
     let query = { userId: req.user.userId };
 
     if (status && status !== "All") {
-      query.status = status;  // exact match
+      query.status = status;  
     }
 
     if (company) {

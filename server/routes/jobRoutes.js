@@ -6,20 +6,19 @@ const upload = require('../utils/multerConfig');
 const { uploadResume, addJob, getJobs, getJob, updateJob, deleteJob } = require('../controllers/jobController');
 
 
-
 router.use(protect);
 
-// Job CRUD routes
 router.route('/')
-  .post(addJob)   
-  .get(getJobs);                   
+  .post(upload.single("resume"), addJob)   
+  .get(getJobs);
+
 
 router.route('/:id')
   .get(getJob)     
   .put(updateJob)  
   .delete(deleteJob); 
 
-// Resume upload route
+
 router.post('/upload/:id', upload.single('resume'), uploadResume);
 
 
