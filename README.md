@@ -4,12 +4,12 @@ A full-stack **MERN** (MongoDB, Express, React, Node.js) application for trackin
 
  Features
 
-- 🔐 User authentication with JWT (register & login, passwords hashed with bcrypt)
-- 📝 Full CRUD on job applications (create, view, update, delete)
-- 📄 Resume upload per job (PDF/DOC/DOCX, up to 5 MB) via Multer
-- 🔍 Filter jobs by status and search by company name
-- 📌 Status tracking per application: `Pending`, `Applied`, `Interview`, `Offer`, `Rejected`
-- 🎨 React (Vite) frontend built with Material UI
+-  User authentication with JWT (register & login, passwords hashed with bcrypt)
+-  Full CRUD on job applications (create, view, update, delete)
+-  Resume upload per job (PDF/DOC/DOCX, up to 5 MB) via Multer
+-  Filter jobs by status and search by company name
+-  Status tracking per application: `Pending`, `Applied`, `Interview`, `Offer`, `Rejected`
+-  React (Vite) frontend built with Material UI
 
  Tech Stack
 
@@ -72,13 +72,6 @@ A full-stack **MERN** (MongoDB, Express, React, Node.js) application for trackin
 ```bash
    cd server
    npm install
-```
-
-   Create a `.env` file inside `server/`:
-```env
-   PORT=5000
-   MONGO_URI=mongodb://localhost:27017/job-tracker
-   JWT_SECRET=your_jwt_secret_here
 ```
 
    Start the API:
